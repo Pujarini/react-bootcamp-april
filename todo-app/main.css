@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", "sans-serif";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: salmon;
+}
+
+.todosContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 10px;
+}
+
+.header input {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.todoItem {
+  list-style: none;
+}
+
+.todoItem .todo-view {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todoItem .todo-view .todo-value {
+  width: 100%;
+  text-align: center;
+  margin: 5px;
+}
+
+.todoItem .todo-view .todo-value:hover {
+  background-color: lightcyan;
+  width: 100%;
+}
+.todoItem .todo-view .todo-toggle {
+  cursor: pointer;
+}
+
+.todoItem .todo-view .todoItem__delete {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  color: red;
+}
+
+.todoItem .todo-view .todoItem__delete:hover {
+  transform: scale(1.5);
+}
+
+.todoItem__completed .todo-value {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.todoItem__completed:hover {
+  background-color: none;
+}
+
+.edit_mode {
+  display: block;
+  padding: 5px;
+  width: 500px;
+}
+
+.main {
+  border: 1px solid lightgray;
+  width: 100%;
+  padding: 5px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightgray;
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
+}
+
+.footer ul {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+.footer ul li {
+  list-style: none;
+  border: 1px solid lightgray;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.footer ul li:hover {
+  transform: scale(1.1);
+}
