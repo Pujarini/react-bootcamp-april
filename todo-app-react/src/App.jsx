@@ -39,9 +39,13 @@ function App() {
     setTodoList(updatedList);
   };
 
-  const deleteTask = (id) => {
-    const updatedList = todoList.filter((todo) => todo.id !== id);
-    setTodoList(updatedList);
+  const deleteTask = (index) => {
+    const updatedTaskList = [...todoList];
+    updatedTaskList.splice(index, 1);
+    setTodoList(updatedTaskList);
+    // console.log(this.state.todoList);
+    // const updatedList = todoList.filter((todo) => todo.id !== id);
+    // setTodoList(updatedList);
   };
   /**
    * {id:hjjh,name:"hggh", active:true}

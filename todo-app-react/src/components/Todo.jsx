@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import EditTodo from "./EditTodo";
 
-const Todo = ({ todo, deleteTask, completeTask, editTask }) => {
+const Todo = ({ todo, index, deleteTask, completeTask, editTask }) => {
   const [edit, setEdit] = useState(false);
 
   const deleteTodo = () => {
-    deleteTask(todo.id);
+    deleteTask(index);
   };
 
   const toggleStatus = () => {

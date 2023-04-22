@@ -1,15 +1,17 @@
 import "./App.css";
-// import Parent from "./useCallback/Parent";
-import Child from "./useMemo/Child";
+import Filters from "./components/Filters";
+import MovieList from "./components/MovieList";
+import Navbar from "./components/Navbar";
 
 function App() {
-  console.log("grandparent called");
-  // const [num, setNum] = useState(0);
   return (
     <div className="App">
-      {/* <button onClick={() => setNum(num + 1)}>{num}</button> */}
-      <Child />
-      {/* <Parent /> */}
+      <Navbar />
+      <Filters />
+      <MovieList />
+      {/**Navbar */}
+      {/**Filter component */}
+      {/**MovieList */}
     </div>
   );
 }
