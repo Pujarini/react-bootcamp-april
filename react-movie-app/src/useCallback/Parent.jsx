@@ -5,8 +5,6 @@ const Parent = () => {
   const [count, setCount] = useState(0);
   const [countTwo, setCountTwo] = useState(0);
 
-  console.log("parent called");
-
   const displayCounter = useCallback(() => {
     return `Hey Counter one is ${count}`;
   }, [count]);

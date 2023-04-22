@@ -1,24 +1,21 @@
-import React, { useEffect, useState, memo } from "react";
-// import requests from "../utils/requests";
-import data from "../data/movies.json";
+import React, { useEffect, useState } from "react";
+import requests from "../utils/requests";
 import MovieItem from "./MovieItem";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    // const movies = fetchTrendingMovies();
-    // setMovies(movies);
-    setMovies(data);
+    fetchTrendingMovies();
   }, []);
 
-  console.log(movies);
-
-  //   const fetchTrendingMovies = async () => {
-  //     const response = await fetch("");
-  //     const movies = await response.json();
-  //     return movies;
-  //   };
+  const fetchTrendingMovies = async () => {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/${requests.fetchTrending.url}`
+    );
+    const moviesList = await response.json();
+    setMovies(moviesList.results);
+  };
 
   return (
     <div className="p-5 my-10 3xl:flex xl:grid-cols-3 md:grid-cols-2 sm:grid flex-wrap justify-center ">
@@ -29,4 +26,4 @@ const MovieList = () => {
   );
 };
 
-export default memo(MovieList);
+export default MovieList;
