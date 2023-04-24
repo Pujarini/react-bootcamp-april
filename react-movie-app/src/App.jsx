@@ -9,6 +9,7 @@ function App() {
       <Navbar />
       <Filters />
       <MovieList />
+
       {/**Navbar */}
       {/**Filter component */}
       {/**MovieList */}

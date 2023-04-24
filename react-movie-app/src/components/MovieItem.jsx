@@ -3,7 +3,6 @@ import { BASE_URL } from "../constants/imgConstants";
 // import { HandThumbUpIcon } from "@heroicons/react";
 
 const MovieItem = ({ movie }) => {
-  console.log(movie);
   return (
     <div className="cursor-pointer p-2 group transition duration-200 ease-in transform hover:z-50 sm:hover:scale-105">
       <img src={`${BASE_URL}/${movie?.backdrop_path}`} />

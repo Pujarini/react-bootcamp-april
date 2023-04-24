@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import requests from "../utils/requests";
 import MovieItem from "./MovieItem";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
+  const [searchParams] = useSearchParams();
+  const code = searchParams.get("genre");
 
   useEffect(() => {
     fetchTrendingMovies();
-  }, []);
+  }, [code]);
 
   const fetchTrendingMovies = async () => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/${requests.fetchTrending.url}`
-    );
+    const url = `https://api.themoviedb.org/3/${
+      requests[code]?.url || requests.fetchTrending.url
+    }`;
+    const response = await fetch(url);
     const moviesList = await response.json();
-    setMovies(moviesList.results);
+    setMovies(moviesList?.results);
   };
 
   return (
@@ -27,3 +31,10 @@ const MovieList = () => {
 };
 
 export default MovieList;
+
+/**
+ * Add genre list
+ * add a search bar
+ * Search for movies
+ * filter according to genre
+ */
