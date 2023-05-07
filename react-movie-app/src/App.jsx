@@ -7,10 +7,17 @@ import MovieList from "./components/MovieList";
 import Navbar from "./components/Navbar";
 import SearchComponent from "./components/SearchComponent";
 import { fetchMovies } from "./utils/fetchMovies";
+import { useDispatch, useSelector } from "react-redux";
+import { showMovies, fetchMovieList } from "./redux/movieSlice";
 
 function App() {
   const [searchMovieText, setSearchMovieText] = useState("");
-  const [movieList, setMovieList] = useState([]);
+
+  // const movie = useSelector((state) => state.movies.showMovies);
+  const movieList = useSelector((state) => state.movies.movieList);
+  console.log(movieList);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!searchMovieText) {
@@ -20,7 +27,7 @@ function App() {
 
   const resetMovieList = async () => {
     const data = await fetchMovies();
-    setMovieList(data);
+    dispatch(fetchMovieList(data));
   };
 
   const filterMovie = (e) => {
@@ -29,21 +36,22 @@ function App() {
       media_type.includes(searchMovieText)
     );
     if (searchMovieText) {
-      setMovieList(filteredMovieList);
+      dispatch(fetchMovieList(filteredMovieList));
     }
   };
   return (
     <div className="App">
-      {/* <Navbar />
-       */}
-      {/* <About /> */}
       <SearchComponent
         searchTextFn={setSearchMovieText}
         searchText={searchMovieText}
         filterMovie={filterMovie}
       />
       <Filters />
-      <MovieList movies={movieList} setMovieListFn={setMovieList} />
+      <button onClick={() => dispatch(showMovies())}>Show Movies</button>
+      <MovieList />
+      {/* <Navbar />
+       */}
+      {/* <About /> */}
 
       {/**Navbar */}
       {/**Filter component */}

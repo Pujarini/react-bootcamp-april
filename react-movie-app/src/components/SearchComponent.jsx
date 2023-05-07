@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const SearchComponent = ({ searchTextFn, searchText, filterMovie }) => {
   const searchMovie = (e) => {
     searchTextFn(e.target.value);
